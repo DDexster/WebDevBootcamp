@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Form Excercise</title>
+</head>
+<body>
+  <h1>Register</h1>
+  <form action="index.html" method="post">
+
+    <div>
+      <label for="firstName">First Name:</label>
+      <input id="firstName" name-"firstname" type="text" placeholder="John" required>
+
+      <label for="LastName">Last Name:</label>
+      <input type="text" name="lastname" id="lastName" placeholder="Smith" required>
+    </div>
+
+  <div>
+    <label for="male">Male</label>
+    <input id="male" type="radio" name="gender" value="Male">
+    <label for="female">Female</label>
+    <input id="female" type="radio" name="gender" value="Female">
+    <label for="other">Other</label>
+    <input id="other" type="radio" name="gender" value="Other">
+  </div>
+
+  <div>
+      <label for="email">Email:</label>
+    <input type="email" name="email" id="email" placeholder="your email" required>
+
+    <label for="pass">Password</label>
+    <input id="pass" type="password" name="pass" pattern=".{5,10}" required title="Pass length must be from 5 to 10">
+  </div>
+
+    <div>
+      <label for="bd">Birthday</label>
+      <select id="bd" name="month">
+        <option>Month</option>
+        <option>February</option>
+        <option>July</option>
+        <option>August</option>
+      </select>
+      <select id="bd" name="day">
+        <option>Day</option>
+        <option>02</option>
+        <option>10</option>
+        <option>19</option>
+      </select>
+      <select id="bd" name="year">
+        <option>Year</option>
+        <option>1985</option>
+        <option>1988</option>
+        <option>2015</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="agreed">I agree with terms and conditions</label>
+      <input type="checkbox" name="agreed">
+    </div>
+
+    <input type="submit">
+  </form>
+</body>
+</html>
