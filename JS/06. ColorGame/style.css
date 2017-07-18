@@ -1,21 +1,103 @@
 body {
-  background-color: #232323;
+    font-family: 'Maven Pro', Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    background-color: #232323;
+    padding: 0;
+    margin: 0;
+}
+
+button {
+    font-weight: 700;
+    text-transform: uppercase;
+    border: 0;
+    background-color: white;
+    height: 30px;
+    color: steelblue;
+    letter-spacing: 1px;
+    font-size: inherit;
+}
+
+button:focus {
+    outline: 0;
+    border: 0;
+}
+
+button:hover {
+    color: white;
+    background-color: steelblue;
+    transition: background-color 0.75s, color 0.75s;
+    -webkit-transition: background-color 0.75s, color 0.75s;
+    -moz-transition: background-color 0.75s, color 0.75s;
+}
+
+button.selected {
+    color: white;
+}
+
+.selected {
+    background-color: steelblue;
+}
+
+.nav {
+    background-color: white;
+    height: 30px;
+    color: black;
+    text-align: center;
 }
 
 .square {
-  width: 30%;
-  background-color: purple;
-  padding-bottom: 30%;
-  margin: 1.66%;
-  float: left;
+    border-radius: 20%;
+    width: 30%;
+    background-color: purple;
+    padding-bottom: 30%;
+    margin: 1.66%;
+    float: left;
+}
+
+#message {
+    color: black;
+    display: inline-block;
+    margin-top: 4px;
 }
 
 #container {
-  margin: 0 auto;
-   max-width: 600px;
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+.wrong {
+    opacity: 0;
+    transition: opacity 0.75s;
+    -webkit-transition: opacity 0.75s;
+    -moz-transition: opacity 0.75s;
 }
 
 h1 {
-  text-align: center;
-  color: white;
+    line-height: 1.1;
+    font-weight: 500;
+    background-color: steelblue;
+    text-align: center;
+    padding: 8px 0;
+    color: white;
+    margin: 0;
+}
+
+#chosen-color {
+    display: block;
+    font-size: 200%;
+    margin: 0;
+    padding: 0;
+}
+
+#reset {
+    float: left;
+}
+
+.difficulty {
+    float: right;
+}
+
+.buttons {
+    margin: 0 auto;
+    max-width: 400px;
 }
