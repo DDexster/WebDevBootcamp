@@ -12,7 +12,8 @@ app.get("/", function(req, res) {
 
 app.get("/results", function(req, res) {
     var query = req.query.search.toLowerCase();
-    request('http://www.omdbapi.com/?apikey=' + OMDBKEY + '&s=' + query, function(error, response, body) {
+    var url = 'http://www.omdbapi.com/?apikey=' + OMDBKEY + '&s=' + query;
+    request(url, function(error, response, body) {
         if (!error && response.statusCode == 200) {
             var data = JSON.parse(body);
             res.render("results", { data: data });
