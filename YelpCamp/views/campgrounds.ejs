@@ -1,0 +1,12 @@
+<h1>Here some CampGrounds you might be interested</h1>
+
+<ul>
+  <% campgrounds.forEach(function(camp){ %>
+    <li>
+      <h4><%= camp["name"]%></h4>
+      <img src='<%= camp["image"] %>' />
+    </li>
+  <% }) %>
+</ul>
+
+<a href="/">Back</a>
