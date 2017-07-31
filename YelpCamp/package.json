@@ -1,0 +1,11 @@
+{
+  "name": "YelpCamp",
+  "version": "1.0.0",
+  "main": "app.js",
+  "author": "Dmitry Bondarenko",
+  "license": "MIT",
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.15.3"
+  }
+}
