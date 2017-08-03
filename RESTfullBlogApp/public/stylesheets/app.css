@@ -1,0 +1,19 @@
+.text .container {
+    margin: 5.0em auto;
+}
+
+#header-icon {
+    font-size: 2em;
+}
+
+#date {
+    color: rgba(10, 10, 10, 0.5);
+}
+
+.description {
+    margin: 20px auto;
+}
+
+.item .image {
+    margin: 10px auto;
+}
