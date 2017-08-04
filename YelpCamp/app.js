@@ -1,9 +1,9 @@
 //=====================VARIABLES=====================
 var express = require('express'),
     app = express(),
+    seedDB = require('./seeds.js'),
     mongoose = require('mongoose'),
     bodyParser = require('body-parser'),
-    seedDB = require('./seeds.js'),
     // User = require('./models/user.js'),
     Comment = require('./models/comment'),
     Campground = require('./models/campground');
