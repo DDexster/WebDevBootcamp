@@ -106,15 +106,15 @@ function seedDB(campNumber) {
                     } else {
                         console.log("Campground added");
                         //create a comment
-                        Comment.create(creareCommentSeed(), function(err, newComment) {
-                            if (err) {
-                                console.log('Comment creation error');
-                            } else {
-                                campground.comments.push(newComment);
-                                campground.save();
-                                console.log("comment added");
-                            }
-                        })
+                        // Comment.create(creareCommentSeed(), function(err, newComment) {
+                        //     if (err) {
+                        //         console.log('Comment creation error');
+                        //     } else {
+                        //         campground.comments.push(newComment);
+                        //         campground.save();
+                        //         console.log("comment added");
+                        //     }
+                        // })
 
                     }
                 });
@@ -129,7 +129,10 @@ function createCampgroundSeed(index) {
     return {
         name: CAMPS[Math.floor(Math.random() * CAMPS.length)],
         image: IMAGES[index],
-        desc: faker.lorem.paragraphs(DESC_PARAGRAPH_NUM)
+        desc: faker.lorem.paragraphs(DESC_PARAGRAPH_NUM),
+        author: {
+            username: faker.internet.userName()
+        }
     }
 }
 
