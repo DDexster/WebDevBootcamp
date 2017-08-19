@@ -131,7 +131,8 @@ function createCampgroundSeed(index) {
         image: IMAGES[index],
         desc: faker.lorem.paragraphs(DESC_PARAGRAPH_NUM),
         author: {
-            username: faker.internet.userName()
+            username: faker.internet.userName(),
+            id: faker.internet.password()
         }
     }
 }

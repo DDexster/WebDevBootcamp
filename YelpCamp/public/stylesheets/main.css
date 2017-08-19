@@ -5,3 +5,7 @@
 .thumbnail {
     padding: 0;
 }
+
+textarea.form-control {
+    height: 200px;
+}

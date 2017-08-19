@@ -1,5 +1,6 @@
 var express = require("express"),
     router = express.Router(),
+    middleware = require('../middleware'),
     Campground = require('../models/campground');
 
 router.get("/", function(req, res) {
@@ -12,7 +13,7 @@ router.get("/", function(req, res) {
     });
 });
 
-router.post("/", isLoggedIn, function(req, res) {
+router.post("/", middleware.isLoggedIn, function(req, res) {
     var campground = req.body.campground;
     if (campground.name && campground.image) {
         var newCampground = {
@@ -35,7 +36,7 @@ router.post("/", isLoggedIn, function(req, res) {
     }
 });
 
-router.get('/new', isLoggedIn, function(req, res) {
+router.get('/new', middleware.isLoggedIn, function(req, res) {
     res.render('campgrounds/new');
 });
 
@@ -49,13 +50,36 @@ router.get('/:id', function(req, res) {
     });
 });
 
-function isLoggedIn(req, res, next) {
-    if (req.isAuthenticated()) {
-        return next();
-    } else {
-        res.redirect('/login');
-    }
-};
+router.get('/:id/edit', middleware.checkCampgroundOwnership, function(req, res) {
+    Campground.findById(req.params.id, function(err, campground) {
+        if (err) {
+            res.redirect('/campgrounds/' + req.params.id);
+        } else {
+            res.render('campgrounds/edit', { campground: campground });
+        }
+    });
+});
+
+router.put('/:id', middleware.checkCampgroundOwnership, function(req, res) {
+    Campground.findByIdAndUpdate(req.params.id, req.body.campground, function(err, updatedCampground) {
+        if (err) {
+            res.redirect('/campgrounds/' + req.params.id + '/edit');
+        } else {
+            res.redirect('/campgrounds/' + req.params.id);
+        }
+    });
+});
+
+router.delete('/:id', middleware.checkCampgroundOwnership, function(req, res) {
+    Campground.findByIdAndRemove(req.params.id, function(err) {
+        if (err) {
+            console.log(err);
+            res.redirect('/campgrounds/' + req.params.id);
+        } else {
+            res.redirect('/campgrounds');
+        }
+    })
+});
 
 
 module.exports = router;
