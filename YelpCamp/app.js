@@ -4,6 +4,7 @@ var express = require('express'),
     seedDB = require('./seeds.js'),
     mongoose = require('mongoose'),
     passport = require('passport'),
+    flash = require('connect-flash'),
     bodyParser = require('body-parser'),
     LocalStrategy = require('passport-local'),
     methodOverride = require('method-override'),
@@ -22,6 +23,7 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
+app.use(flash());
 
 //=======SEEDS
 // seedDB(11);
@@ -41,6 +43,8 @@ passport.deserializeUser(User.deserializeUser());
 //=========USER PASS THROUGH
 app.use(function(req, res, next) {
     res.locals.currentUser = req.user;
+    res.locals.error = req.flash("error");
+    res.locals.success = req.flash("success");
     next();
 });
 

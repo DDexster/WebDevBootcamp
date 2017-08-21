@@ -21,6 +21,15 @@
                    value=<%= campground.image %> />
         </div>
         <div class="form-group">
+            <input class="form-control" 
+                   type="number" 
+                   placeholder="Price for night..." 
+                   name="campground[price]"
+                   min="0.01"
+                   step="0.01"
+                   value=<%= campground.price %> />
+        </div>
+        <div class="form-group">
             <textarea class="form-control" placeholder="Description..." name="campground[desc]"><%= campground.desc %>
             </textarea>
         </div>
